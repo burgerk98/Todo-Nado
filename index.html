@@ -19,7 +19,8 @@
       <!-- 하나의 주제를 가진 투두 카드 -->
       <div class="todo-card-wrap">
         <div class="todo-card-header">
-          <span>오늘 할 일</span>
+          <!-- 클래스명 넣어줌 -->
+          <span class="todo-card-title">오늘 할 일</span>
           <button class="opened_btn">
             <span class="material-symbols-outlined">
               menu
@@ -42,7 +43,7 @@
                   expand_circle_down
                 </span>
               </button>
-              <span>아침 먹기</span>
+              <span class="">아침 먹기</span>
             </li>
           </ul>
         </div>
@@ -53,7 +54,8 @@
       </div>
       <!-- 하나의 주제를 가진 투두 카드, 인데 접힌 -->
       <div class="todo-card-header hidden">
-        <span>리액트 공부</span>
+        <!-- 클래스명 넣어줌 -->
+        <span class="todo-card-title">리액트 공부</span>
         <button class="open_btn">
           <span class="material-symbols-outlined">
             arrow_drop_down
@@ -61,27 +63,27 @@
         </button>
       </div>
     </div>
+  
+
+    <!-- 레이아웃의 오른쪽 -->
+    <div class="user-wrap">
+      <div class="user-name">
+        <p>홍길동</p>
+      </div>
+      <div class="user-profile-img">
+        <img src="" alt="프로필사진">
+      </div>
+      <div class="user-buttons">
+        <button class="user-info-edit-btn" id="user-info-edit-btn">
+          정보수정
+        </button>
+        <span class="material-symbols-outlined">
+          logout
+        </span>
+      </div>
+    </div>
+
   </div>
-
-  <!-- 레이아웃의 오른쪽 -->
-  <div class="user-wrap">
-    <div class="user-name">
-      <p>홍길동</p>
-    </div>
-    <div class="user-profile-img">
-      <img src="" alt="프로필사진">
-    </div>
-    <div class="user-buttons">
-      <button id="user-info-edit-btn">
-        정보수정
-      </button>
-      <span class="material-symbols-outlined">
-        logout
-      </span>
-    </div>
-  </div>
-
-
 
   <script type="module" src="./script/counter.js"></script>
   <script type="module" src="./script/firebase.js"></script>
