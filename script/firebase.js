@@ -23,6 +23,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const auth = getAuth();
+
 userState();
 
 // db에 데이터 쓰는 샘플코드
@@ -40,13 +42,14 @@ export async function readDb() {
 }
 
 // 회원가입하는 코드
-export function singup() {
-  const auth = getAuth();
-  const displayName = "홍길동dkdkdkdkdkdkdkdkd";
-  const email = "Tesddfgdfgfdgfghghjhghjghjst1@gmail.com";
-  const password = "test0000";
+export function signup() {
+  console.log("singup")
+  // const auignupth = getAuth();
+  const singupDisplayName = document.getElementById("signup_name").value;
+  const signupEmail = document.getElementById("signup_email").value;
+  const signupPassword = document.getElementById("signup_pw").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -54,7 +57,7 @@ export function singup() {
 
       // 이메일, 비밀번호 외의 사용자 정보는 여기서 넣으세요.
       updateProfile(auth.currentUser, {
-        displayName: displayName,
+        displayName: singupDisplayName,
       })
         .then(() => {
           console.log("이름넣기 완", auth.currentUser);
@@ -70,15 +73,22 @@ export function singup() {
     });
 }
 
+/*
+ 이메일 링크를 사용하여 연결/재인증 : https://firebase.google.com/docs/auth/web/email-link-auth?hl=ko#linkingre-authentication_with_email_link
+*/
 // 로그인 하는 코드
 export function login() {
-  const auth = getAuth();
-  const email = "Tesddfgdfgfdgfghghjhghjghjst1@gmail.com";
-  const password = "test0000";
-  signInWithEmailAndPassword(auth, email, password)
+  console.log("login")
+  // const auth = getAuth();
+  const loginEmail = document.getElementById("login_email").value;
+  const loginPassword = document.getElementById("login_pw").value;
+
+  signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      
+      console.log(userCredential);
       console.log("로그인됨 : ", user);
     })
     .catch((error) => {
